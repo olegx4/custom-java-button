@@ -39,11 +39,16 @@ public class CustomButton {
     }
 
     public void draw(Graphics g) {
-        if (!isPressed) {
-            g.setColor(Color.RED);
-        } else {
+        if (isPressed) {
             g.setColor(Color.GREEN);
+        } else {
+            g.setColor(Color.RED);
         }
         g.fillRect(x, y, width, height);
+    }
+
+    public boolean onButton(int x, int y) {
+        return (this.x <= x && x <= (this.x + width))
+            && (this.y <= y && y <= (this.y + height));
     }
 }
